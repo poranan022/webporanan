@@ -2,40 +2,60 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>Poranan</title>
+<title>RGB Result</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
 body{
-    background: linear-gradient(120deg,#ffecd2,#fcb69f);
-    font-family: Arial;
+    margin:0;
+    min-height:100vh;
+    font-family:'Orbitron', sans-serif;
+    background: linear-gradient(270deg,
+        #ff0000,#ff9900,#ffff00,#00ff00,#00ffff,#0000ff,#ff00ff,#ff0000);
+    background-size:800% 800%;
+    animation: rgbMove 12s linear infinite;
+}
+
+@keyframes rgbMove{
+    0%{background-position:0% 50%;}
+    100%{background-position:100% 50%;}
 }
 
 .result{
-    width:500px;
-    margin:50px auto;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    width:520px;
+    margin:80px auto;
+    padding:30px;
+    background:rgba(0,0,0,0.88);
+    border-radius:16px;
+    box-shadow:0 0 20px #00ffff,0 0 40px #ff00ff;
+    color:white;
 }
 
 h2{
     text-align:center;
-    color:#ff7a18;
+    color:#00ffff;
+    text-shadow:0 0 10px #00ffff;
 }
 
 .back{
-    margin-top:20px;
     text-align:center;
+    margin-top:25px;
+}
+.back input{
+    padding:10px 35px;
+    border:none;
+    border-radius:30px;
+    font-family:'Orbitron', sans-serif;
+    cursor:pointer;
+    background: linear-gradient(90deg,#ff00ff,#00ffff,#ffff00);
+    background-size:300%;
+    animation: btnRGB 3s linear infinite;
 }
 
-.back input{
-    padding:10px 25px;
-    border:none;
-    border-radius:20px;
-    background:#36d1dc;
-    color:white;
-    cursor:pointer;
+@keyframes btnRGB{
+    from{background-position:0%;}
+    to{background-position:100%;}
 }
 </style>
 </head>
@@ -43,35 +63,34 @@ h2{
 <body>
 
 <div class="result">
-<h2>📋 ข้อมูลที่คุณกรอก</h2>
+<h2>📊 RGB DATA RESULT</h2>
 
 <?php
 if(isset($_POST['save'])){
-    echo "<b>Username:</b> ".$_POST['user']."<br>";
-    echo "<b>Password:</b> ".$_POST['Pwd']."<br>";
-    echo "<b>Address:</b> ".$_POST['address']."<br>";
-    echo "<b>Gender:</b> ".$_POST['gender']."<br>";
-
-    echo "<b>Hobby:</b> ";
+    echo "👤 USER: ".$_POST['user']."<br>";
+    echo "🔐 PASS: ".$_POST['Pwd']."<br>";
+    echo "🏠 ADDRESS: ".$_POST['address']."<br>";
+    echo "⚧ GENDER: ".$_POST['gender']."<br>";
+    echo "🎯 HOBBY: ";
     if(!empty($_POST['Hobby'])){
         foreach($_POST['Hobby'] as $h){
             echo $h." ";
         }
     }
     echo "<br>";
-
-    echo "<b>Beverage:</b> ".$_POST['beverage']."<br>";
+    echo "☕ BEVERAGE: ".$_POST['beverage'];
 }
 ?>
 
 <div class="back">
 <form action="from1.php">
-    <input type="submit" value="Back">
+    <input type="submit" value="BACK">
 </form>
 </div>
 
 </div>
-
 </body>
 </html>
+
+
 

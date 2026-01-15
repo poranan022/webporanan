@@ -2,120 +2,154 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>Poranan</title>
+<title>RGB Form</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+/* 🌈 RGB พื้นหลัง */
 body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(120deg,#74ebd5,#9face6);
+    margin:0;
+    min-height:100vh;
+    font-family:'Orbitron', sans-serif;
+    background:
+        linear-gradient(270deg,
+            #ff0000,
+            #ff9900,
+            #ffff00,
+            #00ff00,
+            #00ffff,
+            #0000ff,
+            #ff00ff,
+            #ff0000
+        );
+    background-size:800% 800%;
+    animation: rgbMove 12s linear infinite;
 }
 
+/* RGB animation */
+@keyframes rgbMove{
+    0%{background-position:0% 50%;}
+    100%{background-position:100% 50%;}
+}
+
+/* 🌟 Emoji background */
+body::before{
+    content:"🔥 ⚡ 💻 🎮 🌈 ";
+    position:fixed;
+    inset:0;
+    font-size:40px;
+    opacity:0.08;
+    pointer-events:none;
+    animation: emojiFloat 20s linear infinite;
+}
+
+/* Emoji ลอย */
+@keyframes emojiFloat{
+    from{transform:translateY(0);}
+    to{transform:translateY(-200px);}
+}
+
+/* 🧱 กล่อง Neon */
 .box{
-    width:600px;
-    margin:50px auto;
-    background:#ffffff;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    width:620px;
+    margin:70px auto;
+    padding:30px;
+    background:rgba(0,0,0,0.85);
+    border-radius:16px;
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 30px #ff00ff;
+    color:white;
 }
 
+/* หัวข้อ */
 h2{
     text-align:center;
-    color:#4A4A4A;
-    margin-bottom:20px;
+    color:#00ffff;
+    text-shadow:0 0 10px #00ffff;
+    letter-spacing:3px;
 }
 
+/* label */
 label{
-    font-weight:bold;
-    color:#333;
-    margin-top:10px;
+    margin-top:14px;
     display:block;
+    color:#ffddff;
 }
 
-input[type=text],
-input[type=password],
-textarea,
-select{
+/* input */
+input, textarea, select{
     width:100%;
-    padding:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    margin-top:5px;
-}
-
-textarea{
-    resize:none;
-}
-
-.inline{
-    margin-top:5px;
-}
-
-.inline input{
-    width:auto;
-    margin-right:5px;
-}
-
-.btn{
-    text-align:center;
-    margin-top:20px;
-}
-
-.btn input{
-    width:120px;
+    margin-top:6px;
     padding:10px;
     border:none;
-    border-radius:25px;
-    font-size:15px;
+    border-radius:8px;
+    background:#111;
+    color:#00ffff;
+    font-family:'Orbitron', sans-serif;
+}
+
+/* radio checkbox */
+.inline{
+    margin-top:6px;
+}
+.inline input{
+    width:auto;
+}
+
+/* ปุ่ม RGB */
+.btn{
+    text-align:center;
+    margin-top:25px;
+}
+.btn input{
+    width:140px;
+    padding:10px;
+    border:none;
+    border-radius:30px;
+    font-family:'Orbitron', sans-serif;
     cursor:pointer;
+    background: linear-gradient(90deg,#ff00ff,#00ffff,#ffff00);
+    background-size:300%;
+    animation: btnRGB 3s linear infinite;
 }
 
-.btn .save{
-    background: linear-gradient(45deg,#56ab2f,#a8e063);
-    color:white;
-}
-
-.btn .cancel{
-    background: linear-gradient(45deg,#ff416c,#ff4b2b);
-    color:white;
-    margin-left:10px;
-}
-
-.btn input:hover{
-    opacity:0.85;
+@keyframes btnRGB{
+    0%{background-position:0%;}
+    100%{background-position:100%;}
 }
 </style>
 </head>
 
 <body>
-
 <div class="box">
-<h2>🌟 แบบฟอร์มสมัครสมาชิก 🌟</h2>
+<h2>🚀 RGB REGISTER 🚀</h2>
 
 <form method="post" action="from2.php">
 
-<label>Username</label>
+<label>👤 USERNAME</label>
 <input type="text" name="user">
 
-<label>Password</label>
+<label>🔐 PASSWORD</label>
 <input type="password" name="Pwd">
 
-<label>Address</label>
-<textarea name="address" rows="4"></textarea>
+<label>🏠 ADDRESS</label>
+<textarea name="address"></textarea>
 
-<label>Gender</label>
+<label>⚧ GENDER</label>
 <div class="inline">
-    <input type="radio" name="gender" value="Male"> ชาย
-    <input type="radio" name="gender" value="Female"> หญิง
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
 </div>
 
-<label>Hobby</label>
+<label>🎯 HOBBY</label>
 <div class="inline">
-    <input type="checkbox" name="Hobby[]" value="อ่านหนังสือ"> อ่านหนังสือ
-    <input type="checkbox" name="Hobby[]" value="ดูทีวี"> ดูทีวี
+    <input type="checkbox" name="Hobby[]" value="อ่านหนังสือ"> 📚
+    <input type="checkbox" name="Hobby[]" value="ดูทีวี"> 📺
 </div>
 
-<label>Beverage</label>
+<label>☕ BEVERAGE</label>
 <select name="beverage">
     <option>ICED TEA</option>
     <option>LEMON TEA</option>
@@ -123,13 +157,14 @@ textarea{
 </select>
 
 <div class="btn">
-    <input type="submit" name="save" value="Save" class="save">
-    <input type="reset" value="Cancel" class="cancel">
+    <input type="submit" name="save" value="SAVE">
+    <input type="reset" value="CANCEL">
 </div>
 
 </form>
 </div>
-
 </body>
 </html>
+
+
 
