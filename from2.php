@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>RGB Result</title>
+<title>Poranan From</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
@@ -78,7 +78,7 @@ if(isset($_POST['save'])){
         }
     }
     echo "<br>";
-    echo "☕ BEVERAGE: ".$_POST['beverage'];
+    echo "You didn't press save.";
 }
 ?>
 

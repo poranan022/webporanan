@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>RGB Form</title>
+<title>Poranan Form</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
@@ -55,11 +55,11 @@ body::before{
     width:620px;
     margin:70px auto;
     padding:30px;
-    background:rgba(0,0,0,0.85);
+    background:rgba(0, 0, 0, 0.65);
     border-radius:16px;
     box-shadow:
-        0 0 15px #00ffff,
-        0 0 30px #ff00ff;
+        0 0 15px #00ffff50,
+        0 0 30px #ff00ff52;
     color:white;
 }
 
@@ -124,7 +124,7 @@ input, textarea, select{
 
 <body>
 <div class="box">
-<h2>🚀 RGB REGISTER 🚀</h2>
+<h2>🚀 DATA RECORDING 🚀</h2>
 
 <form method="post" action="from2.php">
 
@@ -145,8 +145,8 @@ input, textarea, select{
 
 <label>🎯 HOBBY</label>
 <div class="inline">
-    <input type="checkbox" name="Hobby[]" value="อ่านหนังสือ"> 📚
-    <input type="checkbox" name="Hobby[]" value="ดูทีวี"> 📺
+    <input type="checkbox" name="Hobby[]" value="อ่านหนังสือ"> 📚book
+    <input type="checkbox" name="Hobby[]" value="ดูทีวี"> 📺TV
 </div>
 
 <label>☕ BEVERAGE</label>
