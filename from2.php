@@ -66,21 +66,30 @@ h2{
 <h2>📊 RGB DATA RESULT</h2>
 
 <?php
-if(isset($_POST['save'])){
-    echo "👤 USER: ".$_POST['user']."<br>";
-    echo "🔐 PASS: ".$_POST['Pwd']."<br>";
-    echo "🏠 ADDRESS: ".$_POST['address']."<br>";
-    echo "⚧ GENDER: ".$_POST['gender']."<br>";
-    echo "🎯 HOBBY: ";
-    if(!empty($_POST['Hobby'])){
-        foreach($_POST['Hobby'] as $h){
-            echo $h." ";
-        }
-    }
-    echo "<br>";
+if(!isset($_POST['save'])){
     echo "You didn't press save.";
+    exit();
 }
+
+echo "👤 USER: ".($_POST['user'] ?? "")."<br>";
+echo "🔐 PASS: ".($_POST['Pwd'] ?? "")."<br>";
+echo "🏠 ADDRESS: ".($_POST['address'] ?? "")."<br>";
+
+echo "⚧ GENDER: ";
+echo isset($_POST['gender']) ? $_POST['gender'] : "Not selected";
+echo "<br>";
+
+echo "🎯 HOBBY: ";
+if(!empty($_POST['Hobby'])){
+    foreach($_POST['Hobby'] as $h){
+        echo $h." ";
+    }
+} else {
+    echo "None";
+}
+echo "<br>";
 ?>
+
 
 <div class="back">
 <form action="from1.php">
@@ -91,6 +100,7 @@ if(isset($_POST['save'])){
 </div>
 </body>
 </html>
+
 
 
 
